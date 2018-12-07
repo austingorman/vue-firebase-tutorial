@@ -1,6 +1,6 @@
 <template>
     <div class="sign-up">
-        <p>Let's create a new account ! </p>
+        <p>Let's create a new account!</p>
         <input type="text" placeholder="Email"><br>
         <input type="password" placeholder="Password"><br>
         <button>Sign Up</button>
