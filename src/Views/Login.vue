@@ -9,14 +9,29 @@
 </template>
 
 <script>
+import firebase from "firebase";
+
 export default {
     name: "login",
     data() {
-        return {};
+        return {
+            email: "",
+            password: ""
+        };
     },
     methods: {
         login: function() {
-            this.$router.replace("home");
+            firebase
+                .auth()
+                .signInWithEmailAndPassword(this.email, this.password)
+                .then(
+                    function(user) {
+                        alert("Well done ! You are now connected");
+                    },
+                    function(err) {
+                        alert("Oops. " + err.message);
+                    }
+                );
         }
     }
 };

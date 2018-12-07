@@ -9,12 +9,31 @@
 </template>
 
 <script>
+import firebase from "firebase";
+
 export default {
     name: "signUp",
     data() {
-        return {};
+        return {
+            email: "",
+            password: ""
+        };
     },
-    methods: {}
+    methods: {
+        login: function() {
+            firebase
+                .auth()
+                .signInWithEmailAndPassword(this.email, this.password)
+                .then(
+                    function(user) {
+                        alert("Your account has been created !");
+                    },
+                    function(err) {
+                        alert("Oops. " + err.message);
+                    }
+                );
+        }
+    }
 };
 </script>
 
